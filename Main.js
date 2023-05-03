@@ -19,6 +19,7 @@ const BottomTab = () => {
         tabBarStyle: { backgroundColor: '#000000' },
         headerStyle: { backgroundColor: '#000000' },
         headerTintColor: 'white',
+        headerTitleAlign: 'center',
       }}
     >
       <Tab.Screen
@@ -61,7 +62,6 @@ const BottomTab = () => {
             marginTop: 5,
           },
           title: 'Coming Soon',
-          headerTitleAlign: 'center',
         }}
       />
       <Tab.Screen

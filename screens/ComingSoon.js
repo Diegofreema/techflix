@@ -1,10 +1,11 @@
 import { View, Text } from 'react-native';
 import React from 'react';
+import { defaultStyles } from '../constants/styles';
 
 const ComingSoon = () => {
   return (
-    <View className="bg-black flex-1">
-      <Text>ComingSoon</Text>
+    <View style={defaultStyles}>
+      <Text style={{ color: 'white' }}>ComingSoon</Text>
     </View>
   );
 };
