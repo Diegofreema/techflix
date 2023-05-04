@@ -6,10 +6,13 @@ import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { Ionicons, MaterialCommunityIcons } from '@expo/vector-icons';
 
 import Home from './screens/Home';
-import ComingSoon from './screens/ComingSoon';
+
 import Search from './screens/Search';
 import Download from './screens/Download';
-import { Avatar } from 'react-native-paper';
+
+import Favorite from './screens/Favorite';
+
+import MovieDetail from './screens/MovieDetail';
 const Tab = createBottomTabNavigator();
 const Stack = createNativeStackNavigator();
 const BottomTab = () => {
@@ -43,13 +46,13 @@ const BottomTab = () => {
         }}
       />
       <Tab.Screen
-        name="Soon"
-        component={ComingSoon}
+        name="Favorite"
+        component={Favorite}
         options={{
           tabBarIcon: ({ color, focused, size }) => {
             return (
               <Ionicons
-                name={focused ? 'videocam-sharp' : 'videocam-outline'}
+                name={focused ? 'heart' : 'heart-outline'}
                 size={size}
                 color={color}
               />
@@ -61,7 +64,7 @@ const BottomTab = () => {
           tabBarIconStyle: {
             marginTop: 5,
           },
-          title: 'Coming Soon',
+          title: 'Favorite',
         }}
       />
       <Tab.Screen
@@ -117,11 +120,26 @@ const Main = () => {
       <NavigationContainer>
         <Stack.Navigator
           screenOptions={{
-            headerShown: false,
             contentStyle: { backgroundColor: '#000000' },
           }}
         >
-          <Stack.Screen name="Main" component={BottomTab} options={{}} />
+          <Stack.Screen
+            name="Main"
+            component={BottomTab}
+            options={{
+              headerShown: false,
+            }}
+          />
+          <Stack.Screen
+            name="Details"
+            component={MovieDetail}
+            options={{
+              headerStyle: { backgroundColor: '#000000' },
+              headerTitleAlign: 'center',
+              headerTintColor: 'white',
+              title: '',
+            }}
+          />
         </Stack.Navigator>
       </NavigationContainer>
     </>

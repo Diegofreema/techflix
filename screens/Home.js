@@ -5,10 +5,10 @@ import Container from '../constants/Container';
 import categories from '../assets/data/categories';
 import HomeCategory from '../components/HomeCategory';
 
-const firstCategory = categories.courses[0];
-const secondCategory = categories.courses[1];
-const thirdCategory = categories.courses[2];
-const fourthCategory = categories.courses[3];
+const firstCategory = categories.items[0];
+const secondCategory = categories.items[1];
+const thirdCategory = categories.items[2];
+const fourthCategory = categories.items[3];
 const Home = () => {
   return (
     <Container>

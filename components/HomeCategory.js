@@ -1,15 +1,26 @@
-import { StyleSheet, Text, View, Image, FlatList } from 'react-native';
+import {
+  StyleSheet,
+  Text,
+  View,
+  Image,
+  FlatList,
+  Pressable,
+} from 'react-native';
 import React from 'react';
-
+import { useNavigation } from '@react-navigation/native';
 // firstCategory.title;
 // firstCategory.lectures
 
 const HomeCategory = ({ category }) => {
+  const navigation = useNavigation();
+  const navigationHAndler = () => {
+    navigation.navigate('Details');
+  };
   return (
-    <View style={{ marginBottom: 10 }}>
+    <Pressable onPress={navigationHAndler} style={{ marginBottom: 10 }}>
       <Text style={styles.title}>{category.title}</Text>
       <FlatList
-        data={category.lectures}
+        data={category.movies}
         keyExtractor={(item) => item.id}
         renderItem={({ item }) => (
           <Image style={styles.imageStyle} source={{ uri: item.poster }} />
@@ -17,7 +28,7 @@ const HomeCategory = ({ category }) => {
         horizontal
         showsHorizontalScrollIndicator={false}
       />
-    </View>
+    </Pressable>
   );
 };
 
